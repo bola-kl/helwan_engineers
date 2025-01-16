@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style></style>
+        </head>
+        <body>
+            
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Study Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #802BB1, #2D283E);
+            color: #D1D7E0;
+            overflow-x: hidden;
+        }
+
+        /* Mouse trail styles */
+        .trail {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #564F6F, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* Landing Section */
+        .landing {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #802BB1, #564F6F, #4C495D);
+            color: #D1D7E0;
+            text-align: center;
+            position: relative;
+        }
+
+        .landing h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .landing h1:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px #D1D7E0, 0 0 20px #D1D7E0;
+        }
+
+        .landing nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .landing nav ul li {
+            display: inline;
+        }
+
+        .landing nav ul li a {
+            color: #D1D7E0;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .landing nav ul li a:hover {
+            color: #4C495D;
+            text-shadow: 0 0 10px #4C495D, 0 0 20px #4C495D;
+        }
+
+        /* Icon Section */
+        .icon-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .icon-container .icon {
+            font-size: 50px;
+            background: #D1D7E0;
+            padding: 20px;
+            border-radius: 50%;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .icon-container .icon:hover {
+            background: #802BB1;
+            transform: scale(1.1);
+        }
+
+        /* Full-Screen Sections */
+        section {
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Study Section */
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .subject {
+            position: relative;
+            background: linear-gradient(135deg, #802BB1, #564F6F);
+            border-radius: 12px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 250px;
+        }
+
+        .subject:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .subject img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .subject h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #D1D7E0;
+            margin: 0;
+            padding: 10px 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .subject:hover h3 {
+            opacity: 1;
+        }
+
+        /* Mini Store Section */
+        .mini-store {
+            margin-top: 40px;
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products-wrapper {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .products {
+            display: flex;
+            gap: 20px;
+            animation: moveProducts 60s linear infinite;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .products:hover {
+            animation-play-state: paused;
+        }
+
+        .product {
+            background: linear-gradient(135deg, #802BB1, #564F6F);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        @keyframes moveProducts {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-80%);
+            }
+        }
+
+        footer {
+            background: #4C495D;
+            color: #D1D7E0;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+
+
+    <!-- Landing Section -->
+    <section class="landing">
+        <div>
+            <h1>Welcome to College Study Hub</h1>
+            <nav>
+                <ul>
+                    <li><a href="#study">Study</a></li>
+                    <li><a href="#store">Store</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="icon-container">
+                <div class="icon">
+                    <a href="#study"><i class="fas fa-book"></i></a>
+                </div>
+                <div class="icon">
+                    <a href="#store"><i class="fas fa-store"></i></a>
+                </div>
+                <div class="icon">
+                    <a href="#contact"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Section -->
+    <section id="study" class="study">
+        <h2>Study Section</h2>
+        <div class="subjects">
+            <div class="subject">
+                <img src="https://via.placeholder.com/150" alt="Mathematics">
+                <h3>Mathematics</h3>
+            </div>
+            <div class="subject">
+                <img src="https://via.placeholder.com/150" alt="Physics">
+                <h3>Physics</h3>
+            </div>
+            <div class="subject">
+                <img src="https://via.placeholder.com/150" alt="Chemistry">
+                <h3>Chemistry</h3>
+            </div>
+            <div class="subject">
+                <img src="https://via.placeholder.com/150" alt="Biology">
+                <h3>Biology</h3>
+            </div>
+            <div class="subject">
+                <img src="https://via.placeholder.com/150" alt="Computer Science">
+                <h3>Computer Science</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Store Section -->
+    <section id="store" class="mini-store">
+        <h2>Mini Store</h2>
+        <div class="products-wrapper">
+            <div class="products">
+                <!-- 20 Products -->
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 1">
+                    <p>Notebook</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 2">
+                    <p>Calculator</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 3">
+                    <p>Reference Book</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 4">
+                    <p>Geometry Set</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 5">
+                    <p>Backpack</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 6">
+                    <p>Pen Set</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 7">
+                    <p>Notebook Bundle</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 8">
+                    <p>Lab Coat</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 9">
+                    <p>Drawing Kit</p>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Product 10">
+                    <p>Study Lamp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@collegestudyhub.com</p>
+        <p>Phone: +123 456 789</p>
+    </section>
+
+    <footer>
+        <p>© 2025 College Study Hub. All Rights Reserved.</p>
+    </footer>
+
+
+
+            <script>// Write JavaScript here</script>
+        
+    
+</body>
